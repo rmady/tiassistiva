@@ -6,6 +6,7 @@
 </head>
 <body>
 <form name="cadastro" method="POST" action="form.php">
+<input type="hidden" name="id">
 <label>Nome usuário: </label>
 <input type="text" name="nomeusuario" placeholder="Digite seu nome de usuário" id="nome_usuario"><br>
 <label>E-mail: </label>

@@ -2,7 +2,7 @@
 require_once "Conn.php";
 class Usuario {
 	//retorna uma lista com todos os usuários.
-	function lista(){
+	function listar(){
 		$sql = "select * from usuario";
 		$rs = mysqli_query(Conn::conectar(), $sql);
 		return mysqli_fetch_all($rs);
@@ -14,8 +14,8 @@ public static function get_usuario($id){
 	return mysqli_fetch_array($rs);
 }
 	
-public static function inserir(){
-	$sql = "insert into usuario(nomeusuario, email, senha) values ('{$nomeusuario}', '{$email'}, '{$senha}'");
+public static function inserir($nomeusuario, $email, $senha){
+	$sql = "insert into usuario(nomeusuario, email, senha) values ('{$nomeusuario}', '{$email}', '{$senha}')";
 	$rs = mysqli_query(Conn::conectar(), $sql);
 	return $rs;
 	
