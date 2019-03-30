@@ -1,13 +1,19 @@
 <?php
-$id = $_POST['id'];;
-$nomeusuario = $_POST['nomeusuario'];
-$email = $_POST['email'];
-$senha = $_POST['senha'];
+$usuario = new stdClass();
+$usuario->id = $_POST['id'];
+$usuario->nomeusuario = $_POST['nomeusuario'];
+$usuario->email = $_POST['email'];
+$usuario->senha = $_POST['senha'];
+$delete = 0;
 require_once "../db/Usuario.php";
-if($id > 0){
-	$sql = "UPDATE usuario SET id = '$id', nomeusuario = '$nomeusuario', email = '$email', senha = '$senha'";
-	$rs = mysqli_query(Conn.php::conectar());
-}else{
-	$usuario = Usuario::inserir($nomeusuario, $email, $senha);
+if($delete > 0){
+	$resultado = Usuario::deletar($delete);
+}elseif($usuario->id > 0){
+	if($resultado = Usuario::atualizar($usuario)){
+		echo "usuario atualizado";
+		var_dump($resultado);
+	}
+}elseif($usuario->id = -1){
+	$resultado = Usuario::inserir($usuario);
 }
 ?>
